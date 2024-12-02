@@ -4,18 +4,19 @@ values = [' ' for x in range(9)]
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
-    print("\t  {}  |  {}  |  {}".format(values[0], values[1], values[2]))
-    print('\t_____|_____|_____')
- 
-    print("\t     |     |")
-    print("\t  {}  |  {}  |  {}".format(values[3], values[4], values[5]))
-    print('\t_____|_____|_____')
- 
-    print("\t     |     |")
- 
-    print("\t  {}  |  {}  |  {}".format(values[6], values[7], values[8]))
+    # print("\t  {}  |  {}  |  {}".format(values[0], values[1], values[2]))
+    print(f"\t  {values[0]}  |  {values[1]}  |  {values[2]}")
+    print("\t_____|_____|_____       1 | 2 | 3 ")
+    print("\t     |     |          -------------")
+    # print("\t  {}  |  {}  |  {}         4 | 5 | 6 ".format(values[3], values[4], values[5]))
+    print(f"\t  {values[3]}  |  {values[4]}  |  {values[5]}         4 | 5 | 6 ")
+    print("\t_____|_____|_____     -------------")
+    print("\t     |     |            7 | 8 | 9 ")
+    # print("\t  {}  |  {}  |  {}".format(values[6], values[7], values[8]))
+    print(f"\t  {values[6]}  |  {values[7]}  |  {values[8]}")
     print("\t     |     |")
     print("\n")
+
  
  
 # Function to print the score-board
