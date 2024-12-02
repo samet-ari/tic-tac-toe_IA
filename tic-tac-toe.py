@@ -32,17 +32,44 @@ def print_scoreboard(score_board):
  
 # Function to check if any player has won
 # def check_win(player_pos, cur_player):
+
+
+
+
+
+
+
+
  
  
 # Function to check if the game is drawn
 # def check_draw(player_pos):
   
+
+
+
+
+
+
  
 # Function for a single game of Tic Tac Toe
 # def single_game(cur_player):
  
 
+
+
+
+
+
+
 # main
 if __name__ == "__main__":
 
     print_tic_tac_toe(values)
+
+
+
+
+
+
+
