@@ -1,5 +1,10 @@
 values = [' ' for x in range(9)]
+"""
+This is the function to print the Tic Tac Toe game board.
+It also shows the game board next to it with the numbers. 
+This allow the player to see where their symbol will be.
 
+"""
 # Function to print Tic Tac Toe
 def print_tic_tac_toe(values):
     print("\n")
@@ -17,8 +22,7 @@ def print_tic_tac_toe(values):
     print("\t     |     |")
     print("\n")
 
- 
- 
+
 # Function to print the score-board
 def print_scoreboard(score_board):
     print("\t--------------------------------")
@@ -41,6 +45,8 @@ def print_scoreboard(score_board):
  
 # Function for a single game of Tic Tac Toe
 # def single_game(cur_player):
+
+
  
 
 # main
