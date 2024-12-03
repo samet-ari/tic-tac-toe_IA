@@ -83,7 +83,33 @@ def single_game(cur_player):
             print("Place already filled. Try again!!")
             continue
  
-
+ # Update game information
+ 
+        # Updating grid status 
+        values[move-1] = cur_player
+ 
+        # Updating player positions
+        player_pos[cur_player].append(move)
+ 
+        # Function call for checking win
+        if check_win(player_pos, cur_player):
+            print_tic_tac_toe(values)
+            print("Player ", cur_player, " has won the game!!")     
+            print("\n")
+            return cur_player
+ 
+        # Function call for checking draw game
+        if check_draw(player_pos):
+            print_tic_tac_toe(values)
+            print("Game Drawn")
+            print("\n")
+            return 'D'
+ 
+        # Switch player moves
+        if cur_player == 'X':
+            cur_player = 'O'
+        else:
+            cur_player = 'X'
 
 
 
