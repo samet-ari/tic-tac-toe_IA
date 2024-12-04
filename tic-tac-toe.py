@@ -49,8 +49,8 @@ def check_win(player_positions, current_player):
     return False  
 
 # Function to check if the game is drawn
-def check_draw(player_position):
-    if len(player_position['X']) + len(player_position['O']) == 9:
+def check_draw(player_positions):
+    if len(player_positions['X']) + len(player_positions['O']) == 9:
         return True
     return False       
 
@@ -62,7 +62,7 @@ def single_game(current_player):
     values = [' ' for x in range(9)]
      
     # Stores the positions occupied by X and O
-    player_pos = {'X':[], 'O':[]}
+    player_positions = {'X':[], 'O':[]}
      
     # Game Loop for a single game of Tic Tac Toe
     while True:
@@ -92,17 +92,17 @@ def single_game(current_player):
         values[move-1] = current_player
  
         # Updating player positions add latest move to the list for this sign
-        player_pos[current_player].append(move)
+        player_positions[current_player].append(move)
  
         # Function call for checking win
-        if check_win(player_pos, current_player):
+        if check_win(player_positions, current_player):
             print_tic_tac_toe(values)
             print("Player ", current_player, " has won the game!!")     
             print("\n")
             return current_player
  
         # Function call for checking draw game
-        if check_draw(player_pos):
+        if check_draw(player_positions):
             print_tic_tac_toe(values)
             print("Game Drawn")
             print("\n")
