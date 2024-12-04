@@ -31,7 +31,7 @@ def print_scoreboard(score_board):
     print("\t--------------------------------\n")
  
 # Function to check if any player has won
-def check_win(player_position, current_player):
+def check_win(player_positions, current_player):
     win_conditions = [
         [1, 2, 3], [4, 5, 6], [7, 8, 9],    # rows 
         [1, 4, 7], [2, 5, 8], [3, 6, 9],   # columns
@@ -39,7 +39,7 @@ def check_win(player_position, current_player):
     ]
 # Loop to check if any winning combination is satisfied   
     for x in win_conditions:
-        if all(y in player_position[current_player] for y in x): 
+        if all(y in player_positions[current_player] for y in x): 
             return True    
     return False  
 
