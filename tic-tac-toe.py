@@ -69,11 +69,63 @@ def check_win(player_position, current_player):
 
  
 # Function for a single game of Tic Tac Toe
-# def single_game(cur_player):
-
-
+def single_game(cur_player):
  
-
+    # Initialize 'board' values
+    values = [' ' for x in range(9)]
+     
+    # Stores the positions occupied by X and O
+    player_pos = {'X':[], 'O':[]}
+     
+    # Game Loop for a single game of Tic Tac Toe
+    while True:
+        print_tic_tac_toe(values)
+         
+        # Try exception block for MOVE input
+        try:
+            print("Player ", cur_player, " turn. Choose a square : ", end="")
+            move = int(input()) 
+        except ValueError:
+            print("Wrong Input!!! Try Again")
+            continue
+ 
+        # Check if MOVE input in correct
+        if move < 1 or move > 9:
+            print("Wrong Input!!! Try Again")
+            continue
+ 
+        # Check if the box is not occupied already. values are in range(9): 0 to 8 
+        if values[move-1] != ' ':
+            print("Place already filled. Try again!!")
+            continue
+ 
+        # Update game information:
+ 
+        # Updating grid status with the new input
+        values[move-1] = cur_player
+ 
+        # Updating player positions add latest move to the list for this sign
+        player_pos[cur_player].append(move)
+ 
+        # Function call for checking win
+        if check_win(player_pos, cur_player):
+            print_tic_tac_toe(values)
+            print("Player ", cur_player, " has won the game!!")     
+            print("\n")
+            return cur_player
+ 
+        # Function call for checking draw game
+        if check_draw(player_pos):
+            print_tic_tac_toe(values)
+            print("Game Drawn")
+            print("\n")
+            return 'D'
+ 
+        # Switch player moves
+        if cur_player == 'X':
+            cur_player = 'O'
+        else:
+            cur_player = 'X'
 
 
 
@@ -82,13 +134,13 @@ def check_win(player_position, current_player):
 
 # main
 if __name__ == "__main__":
-    
+
     print("Player 1")
-    player1 = input("Enter the name : ")
+    player1 = input("Enter your name : ")
     print("\n")
  
     print("Player 2")
-    player2 = input("Enter the name : ")
+    player2 = input("Enter your name : ")
     print("\n")
      
     # Stores the player who chooses X and O
@@ -118,7 +170,7 @@ if __name__ == "__main__":
         try:
             choice = int(input())   
         except ValueError:
-            print("Wrong Input!!! Try Again\n")
+            print("Wrong Input!!! Enter number '1', '2' or '3'\n")
             continue
  
         # Conditions for player choice  
@@ -142,7 +194,7 @@ if __name__ == "__main__":
             break  
  
         else:
-            print("Wrong Choice!!!! Try Again\n")
+            print("Wrong Input!!! Enter number '1', '2' or '3'\n")
  
         # Stores the winner in a single game of Tic Tac Toe
         winner = single_game(options[choice-1])
@@ -160,11 +212,11 @@ if __name__ == "__main__":
             cur_player = player1
 
     print("Player 1")
-    player1 = input("Enter the name : ")
+    player1 = input("Enter your name : ")
     print("\n")
  
     print("Player 2")
-    player2 = input("Enter the name : ")
+    player2 = input("Enter your name : ")
     print("\n")
      
     # Stores the player who chooses X and O
@@ -194,7 +246,7 @@ if __name__ == "__main__":
         try:
             choice = int(input())   
         except ValueError:
-            print("Wrong Input!!! Try Again\n")
+            print("Wrong Input!!! Enter number '1', '2' or '3'\n")
             continue
  
         # Conditions for player choice  
@@ -218,7 +270,7 @@ if __name__ == "__main__":
             break  
  
         else:
-            print("Wrong Choice!!!! Try Again\n")
+            print("Wrong Input!!! Enter number '1', '2' or '3'\n")
  
         # Stores the winner in a single game of Tic Tac Toe
         winner = single_game(options[choice-1])
