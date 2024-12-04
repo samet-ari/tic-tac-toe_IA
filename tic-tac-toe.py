@@ -37,11 +37,17 @@ def check_win(player_position, current_player):
         [1, 4, 7], [2, 5, 8], [3, 6, 9],   # columns
         [1, 5, 9], [3, 5, 7]               # diagonals
     ]
-    
-    for condition in win_conditions:
-        if all(pos in player_position for pos in condition):
-            return True
-    return False
+# Loop to check if any winning combination is satisfied   
+    for x in win_conditions:
+        if all(y in player_position[current_player] for y in x): 
+            return True    
+    return False  
+
+# Function to check if the game is drawn
+def check_draw(player_position):
+    if len(player_position['X']) + len(player_position['O']) == 9:
+        return True
+    return False       
 
 
 
