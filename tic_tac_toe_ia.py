@@ -97,6 +97,7 @@ def single_game(cur_player, is_ai):
             print("\n")
             return cur_player
 
+
         # Function call for checking draw game
         if check_draw(player_pos):
             print_tic_tac_toe(values)
@@ -120,7 +121,7 @@ def ai_move(values, ai_player, human_player):
                 best_move = i + 1
     return best_move
 
-def minimax(values, depth, is_maximizing, ai_player, human_player):
+def minimax(values, depth, is_maximizing, ai_player, human_player ):
     if check_win({'X': [i+1 for i, x in enumerate(values) if x == 'X'], 'O': [i+1 for i, x in enumerate(values) if x == 'O']}, ai_player):
         return 1
     if check_win({'X': [i+1 for i, x in enumerate(values) if x == 'X'], 'O': [i+1 for i, x in enumerate(values) if x == 'O']}, human_player):
