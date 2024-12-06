@@ -2,16 +2,13 @@
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
-    print("\t  {}  |  {}  |  {}".format(values[0], values[1], values[2]))
-    print('\t_____|_____|_____')
-
-    print("\t     |     |")
-    print("\t  {}  |  {}  |  {}".format(values[3], values[4], values[5]))
-    print('\t_____|_____|_____')
-
-    print("\t     |     |")
-
-    print("\t  {}  |  {}  |  {}".format(values[6], values[7], values[8]))
+    print(f"\t  {values[0]}  |  {values[1]}  |  {values[2]}")
+    print("\t_____|_____|_____       1 | 2 | 3 ")
+    print("\t     |     |          -------------")
+    print(f"\t  {values[3]}  |  {values[4]}  |  {values[5]}         4 | 5 | 6 ")
+    print("\t_____|_____|_____     -------------")
+    print("\t     |     |            7 | 8 | 9 ")
+    print(f"\t  {values[6]}  |  {values[7]}  |  {values[8]}")
     print("\t     |     |")
     print("\n")
 
@@ -69,12 +66,12 @@ def single_game(cur_player, is_ai):
                 print("Player ", cur_player, " turn. Which box? : ", end="")
                 move = int(input())
             except ValueError:
-                print("Wrong Input!!! Try Again")
+                print("Wrong Input!!! Enter a number")
                 continue
 
         # Sanity check for MOVE input
         if move < 1 or move > 9:
-            print("Wrong Input!!! Try Again")
+            print("Wrong Input!!! The number must be between 1 and 9")
             continue
 
         # Check if the box is not occupied already
@@ -153,7 +150,7 @@ if __name__ == "__main__":
     player1 = input("Enter the name : ")
     print("\n")
 
-    print("Player 2 (AI)")
+    print("Player 2 : AI")
     player2 = "AI"
     print("\n")
 
@@ -175,16 +172,15 @@ if __name__ == "__main__":
     while True:
 
         # Player choice Menu
-        print("Turn to choose for", cur_player)
-        print("Enter 1 for X")
-        print("Enter 2 for O")
-        print("Enter 3 to Quit")
+        print("What do you want to do?")
+        print("Enter 1 to play as X")
+        print("Enter 2 to Quit")
 
         # Try exception for CHOICE input
         try:
             choice = int(input())
         except ValueError:
-            print("Wrong Input!!! Try Again\n")
+            print("Wrong Input!!! Enter a number\n")
             continue
 
         # Conditions for player choice
@@ -196,19 +192,12 @@ if __name__ == "__main__":
                 player_choice['O'] = player1
 
         elif choice == 2:
-            player_choice['O'] = cur_player
-            if cur_player == player1:
-                player_choice['X'] = player2
-            else:
-                player_choice['X'] = player1
-
-        elif choice == 3:
             print("Final Scores")
             print_scoreboard(score_board)
             break
 
         else:
-            print("Wrong Choice!!!! Try Again\n")
+            print("Wrong Choice!!!! Type 1 or 2\n")
 
         # Stores the winner in a single game of Tic Tac Toe
         winner = single_game(options[choice-1], is_ai=True)

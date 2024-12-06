@@ -9,15 +9,12 @@ This allow the player to see where their symbol will be.
 def print_tic_tac_toe(values):
     print("\n")
     print("\t     |     |")
-    # print("\t  {}  |  {}  |  {}".format(values[0], values[1], values[2]))
     print(f"\t  {values[0]}  |  {values[1]}  |  {values[2]}")
     print("\t_____|_____|_____       1 | 2 | 3 ")
     print("\t     |     |          -------------")
-    # print("\t  {}  |  {}  |  {}         4 | 5 | 6 ".format(values[3], values[4], values[5]))
     print(f"\t  {values[3]}  |  {values[4]}  |  {values[5]}         4 | 5 | 6 ")
     print("\t_____|_____|_____     -------------")
     print("\t     |     |            7 | 8 | 9 ")
-    # print("\t  {}  |  {}  |  {}".format(values[6], values[7], values[8]))
     print(f"\t  {values[6]}  |  {values[7]}  |  {values[8]}")
     print("\t     |     |")
     print("\n")
@@ -43,14 +40,14 @@ def check_win(player_positions, current_player):
         [1, 5, 9], [3, 5, 7]               # diagonals
     ]
 # Loop to check if any winning combination is satisfied   
-    for x in win_conditions:
-        if all(y in player_positions[current_player] for y in x): 
+    for winning_possibility in win_conditions:
+        if all(position in player_positions[current_player] for position in winning_possibility): 
             return True    
     return False  
 
-# Function to check if the game is drawn
+# Function to check if the game is a draw
 def check_draw(player_positions):
-    if len(player_positions['X']) + len(player_positions['O']) == 9:
+    if len(player_positions['X']) + len(player_positions['O']) == 9: # If all the 'values" filled with "X" or "O"
         return True
     return False       
 
@@ -73,12 +70,12 @@ def single_game(current_player):
             print("Player ", current_player, " turn. Choose a square : ", end="")
             move = int(input()) 
         except ValueError:
-            print("Wrong Input!!! Try Again")
+            print("Wrong Input!!! Type a number")
             continue
  
         # Check if MOVE input in correct
         if move < 1 or move > 9:
-            print("Wrong Input!!! Try Again")
+            print("Wrong Input!!! the number must be between 1 and 9")
             continue
  
         # Check if the box is not occupied already. values are in range(9): 0 to 8 
@@ -116,7 +113,7 @@ def single_game(current_player):
 
 
 # main
-if __name__ == "__main__":
+if __name__ == "__main__": # the game will only run if tic_tac_toe.py is lanched by itself, not if it's run through another file (imported)
 
     print("Player 1")
     player1 = input("Enter your name : ")
