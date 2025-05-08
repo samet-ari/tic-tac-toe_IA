@@ -1,4 +1,4 @@
-# tic-tac-toe
+# tic-tac-toe avec IA
 
 **Fonctionnalités**
 
